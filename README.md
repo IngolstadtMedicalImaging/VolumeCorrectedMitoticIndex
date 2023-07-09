@@ -1,13 +1,10 @@
-# Project Name
-A simple template to get you started on your machine learning projects. Check out the [HOWTO.md](HOWTO.md) for more information on how to use the template. 
+# Volume corrected mitotic index (M/V-index) on hematoxylin and eosin images
+This repository contains the associated programming code for the bachelor thesis "Volumenbasierte Berechnung der Mitoseaktivität von Mammakarzinomen mit Hilfe neuronaler Netze auf Hämatoxylin-Eosin-Bildern". First, the relevant epithelial tissue was segmented on the basis of H&E whole slide images (WSIs). Secondly, the mitoses were determined on the H&E WSI with the help of a mitosis detector and the m/v-index was calculated in the area with the highest mitotic activity. 
 
-## Objectives
+## Explorative Results 
+A total of 50 tissue sections from dogs with confirmed breast carcinoma were available as a data set. These were stained with H&E staining and cytokeratin staining. In total, 100 WSIs were available. The U-Net architecture was chosen for the segmentation model.
 
-Here you can describe the objectives of your project.
-
-## Explorative Results
-
-Here you can add a short summary about your data.
+In order to automatically generate segmentation masks for the training of the neural network based on the cytokeratin staining, various methods such as colour deconvolution, thresholding, and morphological filters were applied. The individual predicted 512x512 pixel patches of the model were merged into a whole WSI. Using the H&E WSI, the predicted WSI and a mitosis detector, the m/v-index was calculated. 
 
 ## Modelling Results
 
