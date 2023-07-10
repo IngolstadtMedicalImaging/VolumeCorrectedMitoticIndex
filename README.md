@@ -13,7 +13,13 @@ In order to automatically generate segmentation masks for the training of the ne
 ## Modelling Results
 
 The U-Net architecture was chosen for the segmentation model. Here, an intersection over union (iou) was calculated on the individual 512x512 pixel patches during training. 
+<p align="center">
+  <img src="patch_prediction.png" width="400px" />
+</p>
 In addition, an entire Slide-IoU was calculated on the subsequently created inference WSIs, in which the entire cytokeratin WSI was used as ground truth. 
+<p align="center">
+  <img src="wsi_prediction.png" width="400px" />
+</p>
 This resulted in a median iou of 45% on the individual patches in training. The intersection over union on the entire WSI of the inference slides resulted in an median of 48%. 
 
 
