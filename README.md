@@ -20,7 +20,26 @@ In addition, an entire Slide-IoU was calculated on the subsequently created infe
 <p align="center">
   <img src="wsi_prediction.png" width="400px" />
 </p>
-This resulted in a median iou of 45% on the individual patches in training. The intersection over union on the entire WSI of the inference slides resulted in an median of 48%. 
+This resulted in a median iou of 45% on the individual patches in training. The intersection over union on the entire WSI of the inference slides resulted in an median of 48%.
 
+## Usage
 
+In order to calculate the M/V-index of H&E WSIs, the epithelial tissue must first be segmented. The inference script [create_patch2slide.py] is used for this. 
+
+The list of parameters is as follows: 
+* `source`: path to the H&E-WSI to be processed
+* `overlap`: patch overlap when reading from the H&E-WSI (default: 256)
+* `patch_size`: size of the patches (default: 512)
+* `level`: downsample level at which to segment the WSI (default: 0)
+* `threshold`: model threshold for segmentation of the tissue (default: 0.5)
+* `save_dir`: directory to save the predicted WSI
+
+An example of usage is described as follows: 
+
+```bash
+python3 create_patch2slide.py --source DATA_DIRECTORY --save_dir RESULTS_DIRECTORY --patch_size 512
+```
+
+In the second step, the M/V-index is calculated. The Jupyter Notebook [calculate_m-v-index.ipynb] is used for this. The script expects the H&E-WSI and the predicted WSI as input. 
+The output is the m/v-index. 
 
